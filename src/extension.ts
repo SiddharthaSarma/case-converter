@@ -29,8 +29,16 @@ export function activate(context: vscode.ExtensionContext) {
       }
       const text = editor.document.getText();
       const cases: any = {
-        'upper case': 'upperCase',
-        'camel case': 'camelCase'
+        'camel case': 'camelCase',
+        'constant case': 'constantCase',
+        'dot case': 'dotCase',
+        'header case': 'headerCase',
+        'hyphen case': 'paramCase',
+        'lower case': 'lowerCase',
+        'kebab case': 'paramCase',
+        'no case': 'noCase',
+        'param case': 'paramCase',
+        'upper case': 'upperCase'
       };
       const list = Object.keys(cases);
       vscode.window.showInformationMessage(text);
