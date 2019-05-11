@@ -41,15 +41,13 @@ export function activate(context: vscode.ExtensionContext) {
         'upper case': 'upperCase'
       };
       const list = Object.keys(cases);
-      vscode.window.showInformationMessage(text);
       const quickPick = vscode.window.createQuickPick();
-      quickPick.items = list.map((x: any) => ({ label: x, description: x }));
+      quickPick.items = list.map((x: string) => ({ label: x, description: x }));
       quickPick.onDidChangeSelection(([item]) => {
         if (item) {
           const val = changeCase[cases[item.label]](text);
           ncp.copy(val, function() {
             vscode.window.showInformationMessage(`text copied: ${val}`);
-            // complete...
           });
           quickPick.dispose();
         }
